@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rayls.Custody.HSM.API", "src\Rayls.Custody.HSM.API\Rayls.Custody.HSM.API.csproj", "{DEB615BE-02ED-4319-9265-9DF201487112}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{36A8EDFF-357B-477C-BBE0-A623E3BE3D83}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rayls.Custody.HSM.DTO", "src\Rayls.Custody.HSM.DTO\Rayls.Custody.HSM.DTO.csproj", "{EB49EE4A-F29E-48A1-A503-1642F2743370}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rayls.Custody.HSM.Repository", "src\Rayls.Custody.HSM.Repository\Rayls.Custody.HSM.Repository.csproj", "{D18E47B7-683B-4D40-868E-FE1F67414193}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rayls.Custody.HSM.Service", "src\Rayls.Custody.HSM.Service\Rayls.Custody.HSM.Service.csproj", "{A25129D8-74A8-4469-9845-E6EEFD7C6B55}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{8AC4E059-DA38-49B2-B44E-A17737F448B1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DeployFiles", "DeployFiles", "{257673CE-4630-486C-81DD-7C775F3C0AAA}"
+	ProjectSection(SolutionItems) = preProject
+		Dockerfile = Dockerfile
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DEB615BE-02ED-4319-9265-9DF201487112}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEB615BE-02ED-4319-9265-9DF201487112}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEB615BE-02ED-4319-9265-9DF201487112}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEB615BE-02ED-4319-9265-9DF201487112}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB49EE4A-F29E-48A1-A503-1642F2743370}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB49EE4A-F29E-48A1-A503-1642F2743370}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB49EE4A-F29E-48A1-A503-1642F2743370}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB49EE4A-F29E-48A1-A503-1642F2743370}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D18E47B7-683B-4D40-868E-FE1F67414193}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D18E47B7-683B-4D40-868E-FE1F67414193}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D18E47B7-683B-4D40-868E-FE1F67414193}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D18E47B7-683B-4D40-868E-FE1F67414193}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A25129D8-74A8-4469-9845-E6EEFD7C6B55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A25129D8-74A8-4469-9845-E6EEFD7C6B55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A25129D8-74A8-4469-9845-E6EEFD7C6B55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A25129D8-74A8-4469-9845-E6EEFD7C6B55}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DEB615BE-02ED-4319-9265-9DF201487112} = {36A8EDFF-357B-477C-BBE0-A623E3BE3D83}
+		{EB49EE4A-F29E-48A1-A503-1642F2743370} = {36A8EDFF-357B-477C-BBE0-A623E3BE3D83}
+		{D18E47B7-683B-4D40-868E-FE1F67414193} = {36A8EDFF-357B-477C-BBE0-A623E3BE3D83}
+		{A25129D8-74A8-4469-9845-E6EEFD7C6B55} = {36A8EDFF-357B-477C-BBE0-A623E3BE3D83}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {706B6433-A48E-457B-A9E4-32B4948695E6}
+	EndGlobalSection
+EndGlobal

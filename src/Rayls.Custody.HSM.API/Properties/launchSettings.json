@@ -1,0 +1,36 @@
+﻿{
+  "$schema": "http://json.schemastore.org/launchsettings.json",
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:35085",
+      "sslPort": 0
+    }
+  },
+  "profiles": {
+    "Rayls.Custody.HSM.API.LOC": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "LOC",
+        "MACHINE": "DEBUG",
+        "COMMOM_API_URL": "http://localhost:8080/api",
+        "POSTGRESQL_SERVER": "localhost",
+        "POSTGRESQL_PORT": "5433",
+        "POSTGRESQL_USERNAME": "postgres",
+        "POSTGRESQL_PASSWORD": "dev-only-password",
+        "POSTGRESQL_DBNAME": "raylzdb",
+        "AUTH_API_KEY": "dev-only-api-key",
+        "AUTH_JWT_SECRET": "dev-only-jwt-signing-secret-change-me",
+        "EVM_JSON_RPC_CHAIN_ID": "1337",
+        "EVM_JSON_RPC": "http://localhost:8545",
+        "USES_AWS": "false",
+        "KMS_MAX_WALLETS": "200",
+        "KEYSTORE_MAX_WALLETS": "20"
+      },
+      "applicationUrl": "http://localhost:5032"
+    }
+  }
+}
