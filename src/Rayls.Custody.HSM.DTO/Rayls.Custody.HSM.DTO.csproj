@@ -9,7 +9,7 @@
   <ItemGroup>
     <PackageReference Include="AWSSDK.SSO" Version="3.7.100.146" />
     <PackageReference Include="AWSSDK.SSOOIDC" Version="3.7.100.146" />
-  	<PackageReference Include="AutoMapper" Version="12.0.1" />
+  	<PackageReference Include="AutoMapper" Version="15.1.3" />
 	<PackageReference Include="Enums.NET" Version="4.0.1" />
 	<PackageReference Include="RestSharp" Version="106.15.0" />
 <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
