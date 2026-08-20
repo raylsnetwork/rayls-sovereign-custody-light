@@ -1,0 +1,36 @@
+# =============================================================================
+# Privacy Custody Light — CI (branch) — thin caller
+# =============================================================================
+# Runs on every push to any branch except main, so build and scan failures show
+# up while the code is being written. The PR to main here means "ready to
+# release", which is far too late for the first build.
+#
+# main is excluded on purpose: a merge into it was already validated on the
+# branch, and the release path builds and scans again before pushing anything.
+#
+# Nothing reaches ECR here — images are pushed only by release.yml, on a `v*`
+# tag, and only if the scan gate passes.
+# =============================================================================
+
+name: CI
+
+on:
+  push:
+    branches-ignore: [main]
+
+# Rapid successive pushes on the same branch supersede each other, so a
+# work-in-progress branch doesn't queue up full .NET builds.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  ci:
+    uses: raylsnetwork/rayls-public-github-workflows/.github/workflows/ci-container.yml@main
+    with:
+      app_name: rayls-privacy-custody-light
+      image_name: rayls-privacy-custody-light
+      dockerfile: Dockerfile

@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>Rayls.Custody.HSM.API</RootNamespace>
+    <RuntimeIdentifiers>win-x64;linux-x64</RuntimeIdentifiers>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <DocumentationFile></DocumentationFile>
+    <!-- Suppress conflict between Nethereum (<8.0.0) and EF Core (>=8.0.2) -->
+    <NoWarn>$(NoWarn);NU1107</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Force version to satisfy EF Core >=8.0.2; Nethereum works fine with 8.x at runtime -->
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.10" />
+    <PackageReference Include="Datadog.Monitoring.Distribution" Version="2.0.1-beta01" />
+	<PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+	<PackageReference Include="Swashbuckle.AspNetCore.Newtonsoft" Version="6.5.0" />
+	<PackageReference Include="Swashbuckle.AspNetCore.ReDoc" Version="6.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Rayls.Custody.HSM.DTO\Rayls.Custody.HSM.DTO.csproj" />
+    <ProjectReference Include="..\Rayls.Custody.HSM.Repository\Rayls.Custody.HSM.Repository.csproj" />
+    <ProjectReference Include="..\Rayls.Custody.HSM.Service\Rayls.Custody.HSM.Service.csproj" />
+  </ItemGroup>
+
+
+</Project>

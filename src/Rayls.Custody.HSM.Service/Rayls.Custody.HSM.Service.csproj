@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>Rayls.Custody.HSM.Service</RootNamespace>
+    <RuntimeIdentifiers>win-x64;linux-x64</RuntimeIdentifiers>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Datadog.Monitoring.Distribution" Version="2.0.1-beta01" />
+    <PackageReference Include="Enums.NET" Version="4.0.1" />
+	<PackageReference Include="PemUtils" Version="3.0.0.82" />
+	<PackageReference Include="AWSSDK.DynamoDBv2" Version="3.7.200.45" />
+	<PackageReference Include="AWSSDK.KeyManagementService" Version="3.7.200.45" />
+	<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.3.1" />
+	<PackageReference Include="Dinamo.Hsm" Version="4.7.47" />
+	<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.18.1" />
+	<PackageReference Include="Nethereum.HdWallet" Version="4.16.0" />
+	<PackageReference Include="Nethereum.KeyStore" Version="4.16.0" />
+	<PackageReference Include="Nethereum.Web3" Version="4.16.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Rayls.Custody.HSM.DTO\Rayls.Custody.HSM.DTO.csproj" />
+  </ItemGroup>
+
+</Project>

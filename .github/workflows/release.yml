@@ -1,0 +1,35 @@
+# =============================================================================
+# Privacy Custody Light — Release on a git tag — thin caller
+# =============================================================================
+# Pushing a `v*` tag builds the image and pushes it to ECR under that tag.
+# Versions are chosen by hand:
+#
+#     git tag v1.3.0 && git push origin v1.3.0
+#
+# NOTHING IS DEPLOYED HERE. Use the Promote workflow, once per environment —
+# testnet and mainnet are the same act.
+#
+# Replaces the previous eks.yml: this app must NOT also call
+# deploy-container.yml, or two pipelines fight over the same GitOps values.
+# =============================================================================
+
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  id-token: write # OIDC → ECR push
+  contents: read
+  security-events: write # Trivy → Security tab
+
+jobs:
+  release:
+    uses: raylsnetwork/rayls-public-github-workflows/.github/workflows/release-container.yml@main
+    with:
+      app_name: rayls-privacy-custody-light
+      image_name: rayls-privacy-custody-light
+      dockerfile: Dockerfile
+    # No gitops inputs and no secrets: the release path builds, scans and pushes
+    # to ECR — it never deploys. Deploying is promote.yml, per environment.

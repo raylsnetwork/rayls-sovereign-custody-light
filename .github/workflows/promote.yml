@@ -1,0 +1,38 @@
+# =============================================================================
+# Privacy Custody Light — Promote a version — thin caller
+# =============================================================================
+# Deploys an already-built version to the chosen environment. Never builds.
+# mainnet opens a GitOps PR that a human merges (production gate).
+# =============================================================================
+
+name: Promote
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Target environment"
+        required: true
+        type: choice
+        options: [testnet, mainnet]
+      version:
+        description: "Version to deploy (e.g. v0.1.0) — must already exist in ECR"
+        required: true
+        type: string
+
+permissions:
+  id-token: write # OIDC → ECR lookup
+  contents: read
+
+jobs:
+  promote:
+    uses: raylsnetwork/rayls-public-github-workflows/.github/workflows/promote-container.yml@main
+    with:
+      app_name: rayls-privacy-custody-light
+      image_name: rayls-privacy-custody-light
+      gitops_app: rayls-privacy-custody-light
+      value_path: image.tag
+      environment: ${{ inputs.environment }}
+      version: ${{ inputs.version }}
+    secrets:
+      GITOPS_REPO_TOKEN: ${{ secrets.GITOPS_REPO_TOKEN }}

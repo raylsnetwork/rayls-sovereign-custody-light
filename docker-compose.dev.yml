@@ -1,0 +1,54 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - .:/app
+      - nuget-cache:/root/.nuget/packages
+      - dotnet-obj-cache:/app/src/Rayls.Custody.HSM.API/obj
+    ports:
+      - "5032:5000"
+    environment:
+      ASPNETCORE_ENVIRONMENT: LOC
+      MACHINE: DEBUG
+      POSTGRESQL_SERVER: postgres
+      POSTGRESQL_PORT: 5432
+      POSTGRESQL_USERNAME: ${POSTGRESQL_USERNAME:-postgres}
+      POSTGRESQL_PASSWORD: ${POSTGRESQL_PASSWORD:-dev-only-password}
+      POSTGRESQL_DBNAME: ${POSTGRESQL_DBNAME:-raylzdb}
+      AUTH_API_KEY: ${AUTH_API_KEY:-dev-only-api-key}
+      AUTH_JWT_SECRET: ${AUTH_JWT_SECRET:-dev-only-jwt-signing-secret-change-me}
+      EVM_JSON_RPC_CHAIN_ID: ${EVM_JSON_RPC_CHAIN_ID:-1337}
+      EVM_JSON_RPC: ${EVM_JSON_RPC:-http://localhost:8545}
+      USES_AWS: "false"
+      KMS_MAX_WALLETS: ${KMS_MAX_WALLETS:-200}
+      KEYSTORE_MAX_WALLETS: ${KEYSTORE_MAX_WALLETS:-20}
+      # WSL2: polling necessário para hot-reload funcionar com volumes montados
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRESQL_USERNAME:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRESQL_PASSWORD:-dev-only-password}
+      POSTGRES_DB: ${POSTGRESQL_DBNAME:-raylzdb}
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRESQL_USERNAME:-postgres}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+volumes:
+  postgres-data:
+  nuget-cache:
+  dotnet-obj-cache:
