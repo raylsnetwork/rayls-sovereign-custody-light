@@ -21,7 +21,7 @@ namespace Rayls.Custody.HSM.API
             {
                 var logo = new
                 {
-                    url = "https://app.rayls.io/assets/images/icons/rayls-logo.svg",
+                    url = "https://dapp.rayls.com/rayls-logo.svg",
                     altText = "Logo",
                 };
 
@@ -36,7 +36,7 @@ namespace Rayls.Custody.HSM.API
                     {
                       {"x-logo", new OpenApiObject
                         {
-                           { "url", new OpenApiString("https://app.rayls.io/assets/images/icons/rayls-logo.svg")},
+                           { "url", new OpenApiString("https://dapp.rayls.com/rayls-logo.svg")},
                            { "altText", new OpenApiString("Rayls API Logo")}
                         }
                       }
